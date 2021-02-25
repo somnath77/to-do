@@ -1,0 +1,55 @@
+%h1 Listing Users
+
+%table
+  %thread
+    %tr
+      %th Name
+      %th Age
+      %th City
+      %th{:colspan => "3"}
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td #{user.name}
+        %td #{user.age}
+        %td #{user.city}
+        %td= link_to "show", user_path(user)
+        %td= link_to "Edit", edit_user_path(user)
+        %td= link_to "Destroy", user_path(user), method: :delete, data: { confirm: "Are you sure?" }
+      
+%br/
+
+= link_to "New User", new_user_path
+
+
+-# <h1>Listing Users</h1>
+
+-# <table>
+-#   <thead>
+-#     <tr>
+-#       <th>Name</th>
+-#       <th>Age</th>
+-#       <th>City</th>
+-#       <th colspan="3"></th>
+-#     </tr>
+-#       </thead>
+      
+
+-#   <tbody>
+-#     <% @users.each do |user| %>
+-#       <tr>
+-#         <td><%= user.name %></td>
+-#         <td><%= user.age %></td>
+-#         <td><%= user.city %></td>
+-#         <td><%= link_to "Show", user %></td>
+-#         <td><%= link_to "Edit", edit_user_path(user) %></td>
+-#         <td><%= link_to "Destroy", user, method: :delete, data: { confirm: "Are you sure?" } %></td>
+-#       </tr>
+-#     <% end %>
+-#   </tbody>
+-# </table>
+
+-# <br>
+
+-# <%= link_to "New user", new_user_path %>

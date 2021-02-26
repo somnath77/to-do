@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :name, :age, :city, presence: true
+  validates :name, :age, :city, :gender, :status, presence: true
 
   has_many :todos
 

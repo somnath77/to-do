@@ -6,6 +6,8 @@
       %th Name
       %th Age
       %th City
+      %th Gender
+      %th Status
       %th{:colspan => "3"}
 
   %tbody
@@ -14,6 +16,9 @@
         %td #{user.name}
         %td #{user.age}
         %td #{user.city}
+        %td #{user.gender}
+        
+        %td #{user.status}
         %td= link_to "show", user_path(user)
         %td= link_to "Edit", edit_user_path(user)
         %td= link_to "Destroy", user_path(user), method: :delete, data: { confirm: "Are you sure?" }

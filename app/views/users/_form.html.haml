@@ -27,4 +27,21 @@
   %br/
   City: = #{form.text_field :city }
   %br/
+  %br/
+  Gender: 
+  = form.radio_button :gender, "male" , :checked => true
+  = form.label :male, "Male" 
+  = form.radio_button :gender, "female" 
+  = form.label :female, "Female" 
+  = form.radio_button :gender, "other" 
+  = form.label :age_adult, "Other" 
+  %br/
+  %br/
+  = form.check_box :status, {multiple: true}, "Student", nil
+  = form.label :male, "Student" 
+  = form.check_box :status, {multiple: true}, "Employee", nil
+  = form.label :male, "Employee" 
+
+  %br/
+  %br/
   = form.submit

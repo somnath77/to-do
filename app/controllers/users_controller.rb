@@ -35,8 +35,11 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path(@user)
+    if @user.destroy
+      redirect_to users_path
+    else
+      render json: { "message": "Failed deletion" }
+    end
   end
 
   private
@@ -45,28 +48,3 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :age, :city, :gender, status: [])
   end
 end
-
-# before_action :status_check
-
-#     def index
-#    @user = User.all.select(:id, :name, :age, :city)
-#    render json:@user.as_json
-#     end
-
-#     def status_check
-#    if(params[:status]== "false")
-#        return render json: "Unauthenticated user"
-#    end
-#     end
-
-#     def show
-#    @user = User.find_by_id(params[:id])
-#    if(@user == nil)
-#        return render json: "Not found"
-#    end
-#    return render json:@user.as_json
-#     end
-
-#     def posts_handler
-#    render json: "Posts handler called"
-#     end

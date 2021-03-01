@@ -1,0 +1,44 @@
+%head
+  :css
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 5px 5px 5px 5px;
+    }
+    \.center {
+      margin: auto;
+      width: 50%;
+      border: 3px solid green;
+      padding: 10px;
+    }
+    
+
+%h1 Listing Users
+
+%table.center
+  %thead
+    %tr
+      %th Name
+      %th Age
+      %th City
+      %th Gender
+      %th Status
+      
+      %th{:colspan => "3"}
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td #{user.name}
+        %td #{user.age}
+        %td #{user.city}
+        %td #{user.gender}
+        
+        %td #{user.status}
+        %td= link_to "show", user_path(user)
+        %td= link_to "Edit", edit_user_path(user)
+        %td= link_to "Destroy", user_path(user), method: :delete, data: { confirm: "Are you sure?" }
+      
+%br/
+
+%div= link_to "New User", new_user_path
